@@ -1,8 +1,8 @@
 import path from "path";
-import configTemplate from "./template_gs-translations.json";
-import { writeFile } from "fs/promises";
+import { existsSync, writeFileSync } from "node:fs";
+import chalk from "chalk";
 
-export const CONFIG_FILENAME = "gs-translations.json" as const;
+export const CONFIG_FILENAME = "gs-translations.config.json" as const;
 
 export type ConfigFileType = {
   auth: {
@@ -16,6 +16,18 @@ export type ConfigFileType = {
   languages: string[];
 };
 
+export const TemplateConfigFile = {
+  auth: {
+    client_email: "<Service Account Client Email>",
+    private_key: "<Service Account Private Key>",
+  },
+  base_language: "en",
+  languages: ["es", "en"],
+  spreadsheetId: "123456789000000000000000000",
+  sheetName: "Sheet1",
+  target_dir: "./i18n",
+};
+
 export const getConfigFile = () => {
   const workingDir = process.cwd();
   const configData: ConfigFileType = require(path.join(
@@ -24,17 +36,33 @@ export const getConfigFile = () => {
   ));
 
   if (!configData) {
-    throw new Error("Config file not found");
+    console.error(chalk.red("Config file not found"));
+    return;
   }
 
   return configData;
 };
 
 export const createTemplateConfigFile = async () => {
-  console.log("Creating template config file...");
   const workingDir = process.cwd();
   const targetPath = path.join(workingDir, CONFIG_FILENAME);
 
-  await writeFile(targetPath, JSON.stringify(configTemplate, null, 2));
-  console.log("Config file created successfully, please edit it");
+  console.log(
+    chalk.blue("Creating config file: "),
+    chalk.underline.blue(targetPath)
+  );
+
+  if (existsSync(targetPath)) {
+    console.error(chalk.red("Config file already exists"));
+    return;
+  }
+
+  const stringFile = JSON.stringify(TemplateConfigFile, null, 2);
+
+  writeFileSync(targetPath, stringFile, {
+    encoding: "utf-8",
+    flag: "w+",
+  });
+
+  console.log(chalk.green("Config file created successfully!, please edit it"));
 };

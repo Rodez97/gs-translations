@@ -19,12 +19,10 @@ program
   .version("0.0.1")
   .name("GS-Translations")
   .description("Use Google Sheets as a translation source for i18n")
-  .option("-f, --fetch", "⬇️ Fetch Translations from Google Sheets")
-  .option("-p, --push", "⬆️ Push Translations to Google Sheets")
-  .option("-i, --init", "⚙️ Create a Template Config File")
-  .option("-h, --help", "🛟 Show help", true);
-
-program.parse(process.argv);
+  .option("-i, --init", "⚙️   Create a Template Config File")
+  .option("-f, --fetch", "⬇️   Fetch Translations from Google Sheets")
+  .option("-p, --push", "⬆️   Push Translations to Google Sheets")
+  .parse(process.argv);
 
 const options = program.opts();
 
@@ -38,8 +36,4 @@ if (options.push) {
 
 if (options.init) {
   createTemplateConfigFile();
-}
-
-if (options.help) {
-  program.help();
 }

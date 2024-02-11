@@ -5,6 +5,10 @@ import { getConfigFile } from "./configFileUtils";
 export default function getSpreadsheet() {
   const configData = getConfigFile();
 
+  if (!configData) {
+    return;
+  }
+
   const serviceAccountAuth = new JWT({
     email:
       process.env.TRANSLATIONS_SERVICE_ACCOUNT_EMAIL ??

@@ -8,6 +8,10 @@ export default async function pushTranslations() {
 
   const configData = getConfigFile();
 
+  if (!configData || !doc) {
+    return;
+  }
+
   const traverseNew = function (
     objects: {
       language: string;
