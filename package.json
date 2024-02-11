@@ -1,5 +1,5 @@
 {
-  "name": "i18n-gs",
+  "name": "gs-translations",
   "version": "0.0.2",
   "description": "A tool to fetch and upload translations to Google Sheets for i18n",
   "main": "./bin/index.js",
@@ -9,7 +9,7 @@
   "keywords": [
     "i18n",
     "google sheets",
-    "i18n-gs",
+    "gs-translations",
     "translations"
   ],
   "author": "Rodez97 (https://github.com/Rodez97)",
@@ -29,16 +29,16 @@
     "typescript": "^5.3.3"
   },
   "bin": {
-    "i18n-gs": "bin/index.js"
+    "gs-translations": "bin/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rodez97/i18n-gs.git"
+    "url": "git+https://github.com/Rodez97/gs-translations.git"
   },
   "bugs": {
-    "url": "https://github.com/Rodez97/i18n-gs/issues"
+    "url": "https://github.com/Rodez97/gs-translations/issues"
   },
-  "homepage": "https://github.com/Rodez97/i18n-gs#readme",
+  "homepage": "https://github.com/Rodez97/gs-translations#readme",
   "files": [
     "bin/"
   ]

@@ -1,8 +1,8 @@
 import path from "path";
-import configTemplate from "./template_i18n_gs.config.json";
+import configTemplate from "./template_gs-translations.json";
 import { writeFile } from "fs/promises";
 
-export const CONFIG_FILENAME = "i18n_gs.config.json" as const;
+export const CONFIG_FILENAME = "gs-translations.json" as const;
 
 export type ConfigFileType = {
   auth: {

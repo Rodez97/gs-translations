@@ -7,16 +7,16 @@ The purpose of this project is to provide an easy way to manage translations in 
 ### Installing the library:
 
 ```bash
-npm install i18n-gs --save-dev
+npm install gs-translations --save-dev
 ```
 
 ### Initialize the configuration file:
 
 ```bash
-npx i18n-gs -i
+npx gs-translations -i
 ```
 
-This will create a `i18n_gs.config.json` file in your project with the following content:
+This will create a `gs-translations.json` file in your project with the following content:
 
 ```json
 {
@@ -52,7 +52,7 @@ This will create a `i18n_gs.config.json` file in your project with the following
 ### Fetching translations from the spreadsheet:
 
 ```bash
-npx i18n-gs -f
+npx gs-translations -f
 ```
 
 This will fetch all translations from the Google Sheets spreadsheet and save them in a JSON file. The location of the file will follow the pattern `<target_dir>/<language>/translations.json`. For example, if the `target_dir` is set to `./i18n` and the language is `es`, the file will be saved in `./i18n/es/translations.json`.
@@ -60,7 +60,7 @@ This will fetch all translations from the Google Sheets spreadsheet and save the
 ### Pushing translations to the spreadsheet:
 
 ```bash
-npx i18n-gs -p
+npx gs-translations -p
 ```
 
 This will analyze all JSON files in the `target_dir` and push any new keys to the Google Sheets spreadsheet.
