@@ -12,7 +12,7 @@
     "i18n-gs",
     "translations"
   ],
-  "author": "Danilo Rodríguez",
+  "author": "Rodez97 (https://github.com/Rodez97)",
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.2",
@@ -33,12 +33,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danilorodriguez/i18n-gs.git"
+    "url": "git+https://github.com/Rodez97/i18n-gs.git"
   },
   "bugs": {
-    "url": "https://github.com/danilorodriguez/i18n-gs/issues"
+    "url": "https://github.com/Rodez97/i18n-gs/issues"
   },
-  "homepage": "https://github.com/danilorodriguez/i18n-gs#readme",
+  "homepage": "https://github.com/Rodez97/i18n-gs#readme",
   "files": [
     "bin/"
   ]
