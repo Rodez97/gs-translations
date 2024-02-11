@@ -1,0 +1,5 @@
+node_modules/
+bin/
+i18n/
+
+i18n_gs.config.json
