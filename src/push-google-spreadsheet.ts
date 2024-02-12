@@ -8,10 +8,6 @@ export default async function pushTranslations() {
 
   const configData = getConfigFile();
 
-  if (!configData || !doc) {
-    return;
-  }
-
   const traverseNew = function (
     objects: {
       language: string;
@@ -108,11 +104,7 @@ export default async function pushTranslations() {
     await sheet.addRows(data); //# append rows
   };
 
-  try {
-    const data = await read();
-    await append(data);
-    console.log("Done!");
-  } catch (error) {
-    console.error(error);
-  }
+  const data = await read();
+  await append(data);
+  console.log("Done!");
 }

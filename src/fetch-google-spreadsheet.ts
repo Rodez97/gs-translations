@@ -9,10 +9,6 @@ export default async function fetchTranslations() {
 
   const configData = getConfigFile();
 
-  if (!configData || !doc) {
-    return;
-  }
-
   const read = async () => {
     console.log("Fetching translations from Google Sheets...");
     await doc.loadInfo(); //# loads document properties and worksheets
@@ -58,11 +54,7 @@ export default async function fetchTranslations() {
     await Promise.all(actions);
   };
 
-  try {
-    const data = await read();
-    await write(data);
-    console.log("Done!");
-  } catch (error) {
-    console.error(error);
-  }
+  const data = await read();
+  await write(data);
+  console.log("Done!");
 }

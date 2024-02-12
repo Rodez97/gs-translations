@@ -27,13 +27,21 @@ program
 const options = program.opts();
 
 if (options.fetch) {
-  fetchTranslations();
+  fetchTranslations().catch(handleError);
 }
 
 if (options.push) {
-  pushTranslations();
+  pushTranslations().catch(handleError);
 }
 
 if (options.init) {
-  createTemplateConfigFile();
+  createTemplateConfigFile().catch(handleError);
+}
+
+function handleError(error: unknown) {
+  if (error instanceof Error) {
+    console.log(chalk.red(error.message));
+  } else {
+    console.log(chalk.red("Something went wrong"));
+  }
 }

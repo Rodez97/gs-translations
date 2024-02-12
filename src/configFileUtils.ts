@@ -36,8 +36,7 @@ export const getConfigFile = () => {
   ));
 
   if (!configData) {
-    console.error(chalk.red("Config file not found"));
-    return;
+    throw new Error("Config file not found");
   }
 
   return configData;
@@ -53,8 +52,7 @@ export const createTemplateConfigFile = async () => {
   );
 
   if (existsSync(targetPath)) {
-    console.error(chalk.red("Config file already exists"));
-    return;
+    throw new Error("Config file already exists");
   }
 
   const stringFile = JSON.stringify(TemplateConfigFile, null, 2);
